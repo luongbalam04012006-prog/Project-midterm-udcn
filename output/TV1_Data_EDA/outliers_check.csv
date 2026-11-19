@@ -1,0 +1,7 @@
+﻿Date,Ticker,R_adj,R_close,R_prev,R_next,Factor_chg,Gap_days,Traded,Volume,Near_event,Nghi_van
+2021-02-17,FPT,0.0926,0.0926,0.0,0.0039,-0.0,9,True,724720,,thiếu phiên liền trước
+2020-05-19,HPG,0.1211,0.1211,-0.0062,-0.013,-0.0,5,True,57620082,,thiếu phiên liền trước
+2021-07-09,HPG,-0.0956,-0.0956,-0.0095,-0.0381,-0.0,7,True,88514471,,thiếu phiên liền trước
+2021-07-09,MWG,0.1256,0.1256,0.0377,-0.0085,-0.0,7,True,3036600,,thiếu phiên liền trước
+2021-09-09,MWG,0.078,0.078,-0.0063,0.0,0.0,2,True,5089600,,không rõ / có thể biến động thật
+2019-07-17,VCB,0.0948,0.0948,0.0,0.0026,-0.0,14,True,1209106,,thiếu phiên liền trước
