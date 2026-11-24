@@ -1,0 +1,6 @@
+﻿Ticker,Best ARMA (BIC),BIC,"BIC ARMA(0,0)","ΔBIC vs (0,0)",LB(10) residual p,Conclusion,ARMA theo statsmodels
+FPT,"(0,0)",5666.276183991497,5666.276183991497,0.0,0.024250602658831538,Keep constant mean (ARMA does not improve materially) | residual LB p = 0.024 < 0.05: mild autocorrelation remains,"(0,0)"
+HPG,"(0,0)",6403.420937327503,6403.420937327503,0.0,0.40822011415380255,Keep constant mean (ARMA does not improve materially),"(0,0)"
+MWG,"(0,1)",6410.165596193214,6411.833874304832,1.6682781116178376,0.6541062421946799,Keep constant mean (ARMA does not improve materially),"(0,1)"
+VCB,"(0,0)",5562.4178464245515,5562.4178464245515,0.0,0.001312232805902739,Keep constant mean (ARMA does not improve materially) | residual LB p = 0.001 < 0.05: mild autocorrelation remains,"(0,0)"
+VHM,"(0,1)",6123.280373901623,6124.370336268057,1.08996236643452,0.2115179925040474,Keep constant mean (ARMA does not improve materially),"(0,1)"

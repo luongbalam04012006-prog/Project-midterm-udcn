@@ -1,0 +1,11 @@
+GENERAL CONCLUSIONS (auto-generated from the results)
+================================================================================
+1. Stylized facts: 5/5 tickers have kurtosis > 3 (fat tails); ARCH-LM rejects H0 for 5/5 tickers -> volatility clustering present, so use the GARCH family with fat-tailed distributions.
+2. Mean model: 5/5 tickers: a constant mean is reasonable (ARMA does not improve materially).
+3. Variance model: selected by BIC: FPT: GJR-GARCH-t, HPG: GJR-GARCH-t, MWG: GJR-GARCH-t, VCB: GARCH-t, VHM: GARCH-t. Out-of-sample (QLIKE): the BIC-selected model is also the winner for 0/5 tickers; EWMA wins for 3/5 tickers.
+4. Dynamic correlation (DCC): a = 0.0279, b = 0.9302, a + b = 0.9581 (half-life 16 sessions) -> parameter a is statistically significant: correlation changes over time; a + b > 0.9: correlation shocks persist; full-sample average correlation = 0.36; Non-stress: 0.36; Covid-19 (02–04/2020): 0.46; Bond & interest-rate stress (04–11/2022): 0.38.
+5. Additional multivariate models: VAR(3): 6/20 Granger relations significant; Johansen cointegration rank = 1.
+6. VaR 99% backtest (in-sample): Normal: 22/12 violations (UNDERESTIMATES risk; violations independent); t: 17/12 violations (Violation rate consistent; violations independent); HS: 18/12 violations (Violation rate consistent; violations CLUSTERED)
+7. Out-of-sample VaR/ES: VaR 95%: best by quantile loss = EWMA-N; VaR 99%: best by quantile loss = EWMA-N.
+8. Tail dependence (copula): t-copula ν = 10.8, average λ_L = 0.043; the t-copula 99% ES equals 1.07 times the Gaussian-copula ES.
+9. Recommendation: based on the backtests and out-of-sample comparison (items 6–7), the VaR 99% method with the lowest out-of-sample quantile loss is EWMA-N; prefer a method not flagged as over-/under-estimating risk. Add the t-copula ES (item 8) as a tail-risk check and use Euler RC as per-ticker limits (section 5.3).

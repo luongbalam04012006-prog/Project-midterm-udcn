@@ -1,0 +1,7 @@
+﻿Date,Ticker,Return,Previous trading session,Days since previous session,Holidays in between,Missing-data days in between,Sessions this ticker did not trade,Cause
+2021-02-17,FPT,0.0926,2021-02-08,9,5,0,1,Multi-day return accumulation: after 5 holiday days; ticker's own missing data 1 sessions
+2020-05-19,HPG,0.1211,2020-05-14,5,0,2,0,Multi-day return accumulation: across 2 days missing in Yahoo
+2021-07-09,HPG,-0.0956,2021-07-02,7,0,4,0,Multi-day return accumulation: across 4 days missing in Yahoo
+2021-07-09,MWG,0.1256,2021-07-02,7,0,4,0,Multi-day return accumulation: across 4 days missing in Yahoo
+2021-09-09,MWG,0.078,2021-09-07,2,0,1,0,Multi-day return accumulation: across 1 days missing in Yahoo
+2019-07-17,VCB,0.0948,2019-07-03,14,0,0,9,Multi-day return accumulation: ticker's own missing data 9 sessions

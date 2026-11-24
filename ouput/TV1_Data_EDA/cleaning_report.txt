@@ -1,0 +1,58 @@
+==============================================================================
+READ DATA
+==============================================================================
+Source: Yahoo Finance (yfinance) | 2019-01-01 -> 2024-12-31 | FPT.VN, HPG.VN, MWG.VN, VCB.VN, VHM.VN
+Saved raw data to D:\Năm 3\Ứng dụng công nghệ trong TCNH\final 2\input\my_prices.csv
+  - FPT: 1562 rows | 2019-01-01 -> 2024-12-31 | 12 dividend events, 6 split/bonus-share events
+  - HPG: 1562 rows | 2019-01-01 -> 2024-12-31 | 3 dividend events, 5 split/bonus-share events
+  - MWG: 1555 rows | 2019-01-01 -> 2024-12-31 | 6 dividend events, 2 split/bonus-share events
+  - VCB: 1555 rows | 2019-01-01 -> 2024-12-31 | 3 dividend events, 2 split/bonus-share events
+  - VHM: 1562 rows | 2019-01-01 -> 2024-12-31 | 3 dividend events, 1 split/bonus-share events
+
+==============================================================================
+STEP 1: ADJUSTED CLOSE PRICES
+==============================================================================
+  [FPT] Adj_Factor: 0.8212 – 0.9678 | days the factor changes (dividend/split): 12 | High<Low: 0
+  [HPG] Adj_Factor: 0.9344 – 0.9820 | days the factor changes (dividend/split): 3 | High<Low: 0
+  [MWG] Adj_Factor: 0.9025 – 0.9579 | days the factor changes (dividend/split): 6 | High<Low: 0
+  [VCB] Adj_Factor: 0.9634 – 0.9846 | days the factor changes (dividend/split): 3 | High<Low: 0
+  [VHM] Adj_Factor: 0.9077 – 0.9630 | days the factor changes (dividend/split): 3 | High<Low: 0
+
+==============================================================================
+STEP 2: HOLIDAYS & NON-TRADING DAYS
+==============================================================================
+  [FPT] rows with Volume=0 (no trading): 114 | number of long breaks > 4 days: 22 (vd: 2019-02-01→2019-02-11, 2019-04-26→2019-05-02, 2019-07-24→2019-07-31)
+  [HPG] rows with Volume=0 (no trading): 116 | number of long breaks > 4 days: 22 (vd: 2019-02-01→2019-02-11, 2019-04-26→2019-05-02, 2019-07-24→2019-07-31)
+  [MWG] rows with Volume=0 (no trading): 114 | number of long breaks > 4 days: 23 (vd: 2019-02-01→2019-02-11, 2019-04-26→2019-05-02, 2019-07-24→2019-07-31)
+  [VCB] rows with Volume=0 (no trading): 121 | number of long breaks > 4 days: 23 (vd: 2019-02-01→2019-02-11, 2019-04-26→2019-05-02, 2019-07-03→2019-07-17)
+  [VHM] rows with Volume=0 (no trading): 127 | number of long breaks > 4 days: 23 (vd: 2019-02-01→2019-02-11, 2019-04-26→2019-05-02, 2019-07-03→2019-07-17)
+
+==============================================================================
+STEP 3: TRADING CALENDAR ALIGNMENT
+==============================================================================
+  Common period: 2019-01-01 -> 2024-12-31 | master-calendar sessions: 1454
+  Mon–Fri days with no trading data for all 5 tickers: 111 = 65 holiday days + 46 days missing in Yahoo
+    Example missing days: 2019-02-18, 2019-07-25, 2019-07-26, 2019-07-29, 2019-07-30, 2019-08-06, 2019-12-03, 2019-12-04 ...
+  [FPT] real trading sessions: 1448/1454 | forward-filled sessions: 6 | remaining NaN: 0
+  [HPG] real trading sessions: 1446/1454 | forward-filled sessions: 8 | remaining NaN: 0
+  [MWG] real trading sessions: 1441/1454 | forward-filled sessions: 13 | remaining NaN: 0
+  [VCB] real trading sessions: 1434/1454 | forward-filled sessions: 20 | remaining NaN: 0
+  [VHM] real trading sessions: 1435/1454 | forward-filled sessions: 19 | remaining NaN: 0
+  Final price panel: 1454 sessions × 5 tickers (FPT, HPG, MWG, VCB, VHM)
+
+  Days with |return| > ±7% (+0.5% tolerance): 6
+      Date Ticker  Return Previous trading session  Days since previous session  Holidays in between  Missing-data days in between  Sessions this ticker did not trade                                                                                     Cause
+2021-02-17    FPT  0.0926               2021-02-08                            9                    5                             0                                   1 Multi-day return accumulation: after 5 holiday days; ticker's own missing data 1 sessions
+2020-05-19    HPG  0.1211               2020-05-14                            5                    0                             2                                   0                             Multi-day return accumulation: across 2 days missing in Yahoo
+2021-07-09    HPG -0.0956               2021-07-02                            7                    0                             4                                   0                             Multi-day return accumulation: across 4 days missing in Yahoo
+2021-07-09    MWG  0.1256               2021-07-02                            7                    0                             4                                   0                             Multi-day return accumulation: across 4 days missing in Yahoo
+2021-09-09    MWG  0.0780               2021-09-07                            2                    0                             1                                   0                             Multi-day return accumulation: across 1 days missing in Yahoo
+2019-07-17    VCB  0.0948               2019-07-03                           14                    0                             0                                   9                       Multi-day return accumulation: ticker's own missing data 9 sessions
+
+  Summary of causes:
+Cause
+Multi-day return accumulation: across 4 days missing in Yahoo                                2
+Multi-day return accumulation: after 5 holiday days; ticker's own missing data 1 sessions    1
+Multi-day return accumulation: across 2 days missing in Yahoo                                1
+Multi-day return accumulation: across 1 days missing in Yahoo                                1
+Multi-day return accumulation: ticker's own missing data 9 sessions                          1

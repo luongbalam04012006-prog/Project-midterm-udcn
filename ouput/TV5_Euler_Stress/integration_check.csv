@@ -1,0 +1,12 @@
+﻿Item,Part,Pass,Note
+Same ticker list in Parts 1/2/3,TV5,True,"FPT, HPG, MWG, VCB, VHM"
+Same date calendar in Parts 1/2/4,TV5,True,1453 sessions 2019-01-03 → 2024-12-31
+H_t has shape T × N × N,TV5,True,"(1453, 5, 5)"
+"No NaN in r, ε, σ, H",TV5,True,
+sqrt(diag H_t) = σ_t (TV2 ↔ TV3),TV5,True,
+H_t symmetric & positive definite,TV5,True,λ_min = 7.03e-05
+"DCC stationary: a ≥ 0, b ≥ 0, a + b < 1",TV5,True,a + b = 0.9581
+σ_p of Part 4 = sqrt(w'H_t w) with the same w,TV5,True,"w = {'FPT': 0.2, 'HPG': 0.2, 'MWG': 0.2, 'VCB': 0.2, 'VHM': 0.2}"
+Weights sum to 1,TV5,True,
+All univariate GARCH models converge,TV5,True,
+"Out-of-sample VaR/ES: N_TEST days, no NaN, same calendar as var_es",TV5,True,500 sessions
